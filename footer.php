@@ -1,4 +1,6 @@
-<p>The footer</p>
+</div> <!-- div.container -->
+
+
 
 <?php wp_footer(); ?>
 

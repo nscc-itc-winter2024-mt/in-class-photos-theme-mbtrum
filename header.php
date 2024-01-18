@@ -13,4 +13,4 @@
  
 <body <?php body_class(); ?>>
 
-<p>The header</p>
+<div class="container">
