@@ -7,3 +7,41 @@ Version: 1.0
 */
 
 /* Theme styles go here */
+
+/* pin box */
+.pin-container {
+    width: 100%;
+    margin: 20px auto;
+    columns: 3;
+    column-gap: 20px
+}
+
+.pin-container .pin-box {
+    width: 100%;
+    margin-bottom: 20px;
+    break-inside: avoid;
+    position:relative;
+ }
+
+.pin-container .pin-box img {
+    max-width: 100%;
+    max-width: 100%;
+}
+
+@media (max-width: 992px) {
+    .pin-container {
+        columns: 2;
+    }
+}
+
+@media (max-width: 562px) {
+    .pin-container {
+        columns: 1;
+    }
+}
+
+
+.avatar_thumb {
+}
+
+
