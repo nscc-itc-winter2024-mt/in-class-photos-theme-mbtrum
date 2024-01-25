@@ -21,16 +21,19 @@ foreach($photos as $photo)
     $id = $photo->ID;
     $author_id = $photo->post_author;
 
-    $featured_img_url = get_the_post_thumbnail_url($id, 'large');
+    $photo_src = get_the_post_thumbnail_url($id, 'large');
     $post_url = get_permalink($id);
     $author_name = get_the_author_meta('display_name', $author_id);
-    $author_avatar_url = get_avatar_url($author_id);
+    $avatar_src = get_avatar_url($author_id);
     ?>
 
     <div class="pin-box">
-        <a href="<?= $post_url ?>">
-            <img src="<?= $featured_img_url ?>">
-        </a>
+        <a href="<?= $post_url ?>"></a>
+        <img src="<?= $photo_src ?>">
+        <div class="pin-caption">
+            <img src="<?= $avatar_src ?>">
+            <div><?= $author_name ?></div>
+        </div>  
     </div><!-- .pin-box -->
 <?php
 }
