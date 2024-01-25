@@ -19,7 +19,7 @@ while ( have_posts() ) :
     <?= $author_name ?>
 </div>
 
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center mb-3">
     <?= the_post_thumbnail('large') ?>
 </div>
 
@@ -27,15 +27,37 @@ while ( have_posts() ) :
 
 <main><?= the_content() ?></main>
 
+<div class="mb-3">
 <?php
-the_category();
+//
+// Get the category
+//
 
-the_tags();
+$categories = get_the_category($post->ID);
+
+foreach($categories as $category) { ?>
+    <a href="<?= get_category_link($category->term_id) ?>" class="link-secondary text-decoration-none"><?= $category->name ?></a>
+<?php } ?>
+
+</div> <!-- .post-categories -->
+
+<div class="">
+<?php
+//
+// Get the tags
+//
+
+$tags = get_the_tags($post->ID);
+
+foreach($tags as $tag){ ?>
+    <span class="badge rounded-pill text-bg-light">
+        <a href="<?= get_tag_link($tag->term_id) ?>" class="link-secondary text-decoration-none"><?= $tag->name ?></a>
+    </span>
+<?php }
 
 endwhile;
 ?>
 
+</div> <!-- .post-tags -->
 
-<?php 
-get_footer();
-?>
+<?php get_footer(); ?>
